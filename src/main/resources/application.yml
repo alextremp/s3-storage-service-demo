@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+
+s3-storage:
+  region: eu-west-1
+  accessKey: test
+  secretKey: test
+  bucket: com.github.alextremp.storage

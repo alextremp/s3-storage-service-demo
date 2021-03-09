@@ -1,0 +1,6 @@
+version: '3.5'
+
+services:
+  s3-storage:
+    ports:
+      - '14566:4566'

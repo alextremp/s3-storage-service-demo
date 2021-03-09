@@ -1,0 +1,3 @@
+# application-dev.yml
+s3-storage:
+  endpoint: http://localhost:14566

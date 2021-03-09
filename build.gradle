@@ -1,0 +1,56 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'jacoco'
+}
+
+group = 'com.github.alextremp.storage'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('testcontainersVersion', "1.15.2")
+}
+
+dependencies {
+
+	// spring dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// aws dependencies
+	implementation platform('software.amazon.awssdk:bom:2.15.0')
+	implementation 'software.amazon.awssdk:s3'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok:1.18.16'
+	annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+	// Apache Commons
+	implementation 'org.apache.commons:commons-lang3:3.10'
+
+	// test dependencies
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:testcontainers'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api'
+	testImplementation 'io.rest-assured:spring-mock-mvc'
+	testImplementation 'org.assertj:assertj-core'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+jacocoTestReport {
+	dependsOn test
+}
