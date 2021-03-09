@@ -1,6 +1,13 @@
 # AWS S3 storage en local con LocalStack
 
-Este proyecto es la base del post ...
+Este proyecto es una demo para un artículo en [dev.to/alextremp](https://dev.to/alextremp)
+
+**Servicio de almacenamiento de ficheros a bucket de S3** 
+
+- Un endpoint POST para enviar un fichero a un path específico.
+- El servicio almacenará el fichero a un bucket de S3.
+- Devolverá la URL de acceso del fichero, ya sea local, de S3 o de CloudFront si se dispone.
+
 
 # Uso
 
